@@ -1,0 +1,13 @@
+$bgColor: pink;
+
+$TEST_BG : rgb(27, 153, 101);
+
+$breakpoint-mobile: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1280px;
+
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
