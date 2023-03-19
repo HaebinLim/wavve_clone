@@ -18,7 +18,8 @@
         </div>
       </div>
       <div class="sns">
-        <button>페이스북</button>
+        <button type="button">페이스북</button>
+        <button type="button">블로그</button>
       </div>
     </div>
   </footer>
