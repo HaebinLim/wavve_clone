@@ -1,21 +1,17 @@
-@mixin mobile {
-  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+@mixin desktop {
+  @media all and (min-width: #{$breakpoint-tablet}) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+  @media all and (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1}) {
     @content;
   }
 }
 
-@mixin desktop {
-  @media (min-width: #{$breakpoint-desktop}) {
+@mixin mobile {
+  @media all and (max-width: #{$breakpoint-mobile}-1) {
     @content;
   }
-}
-
-a {
-  text-decoration: none;
 }

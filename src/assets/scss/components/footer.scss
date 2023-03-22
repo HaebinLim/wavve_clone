@@ -1,0 +1,75 @@
+.footer {
+  padding: 10px 20px 100px;
+  color: #717171;
+  line-height: 20px;
+
+  .inner {
+    padding-top: 50px;
+  }
+
+  @include desktop {
+    .inner {
+      padding-top: 0;
+    }
+  }
+
+
+  &__links {
+    display: flex;
+    gap: 0 24px;
+    font-size: 14px;
+
+    li>a {
+      display: block;
+      padding: 10px 0;
+      color: #717171;
+    }
+  }
+
+  &__copyright {
+    font-size: 12px;
+
+    .txt {
+      &:last-child {
+        margin-top: 10px;
+      }
+
+      >span {
+        &:not(:first-child)::before {
+          content: " | "
+        }
+      }
+    }
+  }
+
+  &__sns {
+    display: flex;
+    gap: 0 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include desktop {
+      left: initial;
+      right: 0;
+    }
+
+    .sns__btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      background: #252525;
+
+      &--facebook::before {
+        content: "f"
+      }
+
+      &--blog::before {
+        content: "b"
+      }
+    }
+  }
+}
