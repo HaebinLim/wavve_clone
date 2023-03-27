@@ -1,5 +1,6 @@
 <template>
   <div class="inner">
+    <ItemCardList :list="list" :type="'wide'" />
     <ItemCardList :title="'이 영화 찾으세요? TV속영화'" :list="list" />
   </div>
 </template>
