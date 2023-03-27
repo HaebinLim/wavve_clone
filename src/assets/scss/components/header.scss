@@ -21,6 +21,7 @@
 
 .navigation {
   display: flex;
+  flex: 1;
 
   &__link {
     display: flex;
@@ -44,12 +45,41 @@
       content: "";
 
       @include desktop {
-        content: none
+        content: none;
       }
     }
   }
 
   .router-link-active {
     color: #fff;
+  }
+  &__category {
+    display: flex;
+    position: relative;
+    width: 210px;
+    &__layer {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 100;
+      padding: 0 20px 10px;
+      background: #101010;
+    }
+    .category__link {
+      padding: 10px 0;
+      color: #a5a5a5;
+      font-size: 14px;
+      &:hover {
+        color: #fff;
+        font-weight: bold;
+      }
+      &:first-child {
+        margin-bottom: 10px;
+        padding: 20px 0;
+        border-bottom: 1px solid #2f2f2f;
+      }
+    }
   }
 }
