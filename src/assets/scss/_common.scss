@@ -4,6 +4,17 @@
 '@/assets/scss/_variables',
 '@/assets/scss/_mixins';
 
+
+*, ::before, ::after { 
+  box-sizing: border-box;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 body {
   margin: 0;
   background: #1b1b1b;
@@ -30,3 +41,4 @@ body {
 a {
   text-decoration: none;
 }
+

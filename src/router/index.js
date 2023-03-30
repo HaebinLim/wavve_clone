@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../pages';
 import Category from '../pages/category/_id';
+import Vod from '../pages/vod/_id';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/category/:id',
       name: 'Category',
       component: Category
+    },
+    {
+      path: '/vod/:id',
+      name: 'Vod',
+      component: Vod
     },
   ]
 })

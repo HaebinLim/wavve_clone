@@ -1,19 +1,22 @@
+.section {
+  position: relative;
+
+  .title {
+    color: #fff;
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 10px;
+  }
+}
+
 .item__card {
   $parent: &;
-  display: flex;
-  flex: 0 0 auto;
   position: relative;
-  padding: 40px;
-  width: 240px;
-  height: 360px;
-  border-radius: 12px;
-  box-sizing: border-box;
-
-  &--size-wide {
-    max-width: 1240px;
-    width: 100%;
-    height: 508px;
-  }
 
   &__badge {
     position: absolute;
@@ -70,28 +73,107 @@
   }
 
   &__thumb {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    background-size: cover;
-    background-repeat: no-repeat;
+    overflow: hidden;
+    width: 240px;
+    height: 360px;
     border-radius: 12px;
-
+    > img {
+      width: 100%;
+      height: 100%;
+      vertical-align: top;
+    }
   }
 
-  &__text {
-    display: flex;
-    align-self: flex-end;
-    margin-top: auto;
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    font-size: 48px;
+  &__wrap {
+    overflow: hidden;
+    padding: 20px;
+   
+    #{$parent}__title {
+      color: #fff;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    #{$parent}__info {
+      display: block;
+      margin-top: 4px;
+      color: #a5a5a5;
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
+
+  &__story {
+    overflow: hidden;
+    color: #a5a5a5;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+
+  &--series {
+    #{$parent}__thumb {
+      float: left;
+      width: 185px;
+      height: 278px;
+    }
+    #{$parent}__story {
+      padding: 0 20px;
+    }
+  }
+
+  &--episode {
+    #{$parent}__thumb {
+      float: left;
+      height: 135px;
+    }
+    #{$parent}__wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 135px;
+    }
+    #{$parent}__story {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      padding: 20px 0;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+    }
+  }
+
+  &--related {
+    #{$parent}__thumb {
+      width: 406px;
+      height: 230px;
+    }
+  }
+
+  &--wide {
+    #{$parent}__thumb {
+      width: 1240px;
+      height: 508px;
+    }
+    #{$parent}__wrap {
+      position:absolute;
+      bottom: 0;
+      left: 0;
+      padding: 40px;
+      color: #fff;
+    }
+    #{$parent}__title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+    #{$parent}__info {
+      display: block;
+      margin-top: 20px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+  
 }
 
 @include mobile {
@@ -100,7 +182,7 @@
     width: 112px;
     height: 168px;
 
-    &--size-wide {
+    &--wide {
       height: 200px;
 
       &__thumb {
@@ -126,9 +208,6 @@
     &__thumb {
       border-radius: 12px;
     }
-
-    &__text {
-      font-size: 24px;
-    }
+   
   }
 }
