@@ -1,8 +1,8 @@
 <template>
-  <div class="section">
-    <strong class="title">{{ title }}</strong>
-    <div class="list">
-      <ItemCard
+  <div class="video__wrap">
+    <strong class="video__title">{{ title }}</strong>
+    <div :class="['video__list', `video__list--${type}`]">
+      <ItemVideo
         v-for="item in list"
         :key="item.title"
         :size="size"
@@ -13,20 +13,26 @@
         :text-badge="item.textBadge"
         :icon-badge="item.iconBadge" />
     </div>
-    <button type="button">
+    <button
+      type="button"
+      class="video__more">
       더보기
     </button>
   </div>
 </template>
 
 <script>
-import ItemCard from '@/components/ItemCard.vue';
+import ItemVideo from '@/components/ItemVideo.vue';
 export default {
-  name: 'ItemCardList',
+  name: 'ItemVideoList',
   components: {
-    ItemCard
+    ItemVideo
   },
   props: {
+    type: {
+      type: String,
+      default: '',
+    },
     title: {
       type: String,
       default: '',
@@ -48,5 +54,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/components/itemCard.scss';
+@import '../assets/scss/components/itemVideoList.scss';
 </style>

@@ -1,0 +1,63 @@
+
+.video {
+  &__wrap {
+    position: relative;
+  }
+  
+  &__title {
+    display: block;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 10px;
+
+    &--rank {
+      counter-reset: rank;
+      .item {
+        position: relative;
+        padding-bottom: 30px;
+        counter-increment: rank;
+
+        &::before {
+          position: absolute;
+          bottom: 0;
+          left: 5px;
+          color: #fff;
+          font-weight: bold;
+          font-size: 80px;
+          font-style: italic;
+          text-shadow: 0 0 4px #000;
+          content:counter(rank); 
+        }
+      }
+    }
+  }
+  &__more {
+    display: flex;
+    align-items: center;
+    gap: 0 5px;
+    position: absolute;
+    top: 12px;
+    right: 0;
+    padding: 5px;
+    color: #a5a5a5;
+    font-size: 16px;
+    line-height: 24px;
+    &:after {
+      display: inline-flex;
+      width: 8px;
+      height: 8px;
+      border: solid currentColor;
+      border-width: 1px 1px 0 0;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      content: ""
+    }
+  }
+}

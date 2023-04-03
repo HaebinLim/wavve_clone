@@ -1,20 +1,4 @@
-.section {
-  position: relative;
-
-  .title {
-    color: #fff;
-    font-size: 24px;
-    line-height: 36px;
-  }
-
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 10px;
-  }
-}
-
-.item__card {
+.item {
   $parent: &;
   position: relative;
 
@@ -177,7 +161,7 @@
 }
 
 @include mobile {
-  .item__card {
+  .item {
     padding: 20px;
     width: 112px;
     height: 168px;
@@ -208,6 +192,5 @@
     &__thumb {
       border-radius: 12px;
     }
-   
   }
 }

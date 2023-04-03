@@ -1,8 +1,8 @@
 <template>
-  <div :class="['item__card', `item__card--${size}`]">
+  <div :class="['item', sizeClass]">
     <div
       v-if="textBadge?.length"
-      class="item__card__badge item__card__badge--left">
+      class="item__badge item__badge--left">
       <div class="badge">
         <span
           v-for="txt in textBadge"
@@ -11,27 +11,27 @@
     </div>
     <div
       v-if="iconBadge"
-      class="item__card__badge item__card__badge--right">
+      class="item__badge item__badge--right">
       <div :class="['icon', iconBadge]" />
     </div>
     <div
-      class="item__card__thumb">
+      class="item__thumb">
       <img
         :src="thumb"
         alt="">
     </div>
     <div
-      class="item__card__wrap"
+      class="item__wrap"
       v-if="title !== ''">
       <strong
-        class="item__card__title"
+        class="item__title"
         v-if="title !== ''">{{ title }}</strong>
       <span
-        class="item__card__info"
+        class="item__info"
         v-if="info !== ''">{{ info }}</span>
     </div>
     <p
-      class="item__card__story"
+      class="item__story"
       v-if="size === title !== ''">
       {{ desc }}
     </p>
@@ -39,8 +39,9 @@
 </template>
 
 <script>
+import { computed } from 'vue'
 export default {
-  name: 'ItemCard',
+  name: 'ItemVideo',
   props: {
     size: {
       type: String,
@@ -71,13 +72,16 @@ export default {
       default: '',
     },
   },
-  setup() {
+  setup(props) {
+    const sizeClass = computed(() => props.size !== '' && `item--${props.size}` )
+
     return {
+      sizeClass
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/components/itemCard.scss';
+@import '../assets/scss/components/itemVideo.scss';
 </style>
