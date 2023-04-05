@@ -42,3 +42,19 @@ a {
   text-decoration: none;
 }
 
+
+.swiper {
+  &-button-prev,
+  &-button-next {
+    --swiper-navigation-size: 80px;
+    --swiper-navigation-color: #fff;
+    padding: 50px;
+  }
+  &-pagination {
+    &-bullet {
+      --swiper-pagination-bullet-size: 10px;
+      --swiper-pagination-color: #fff;
+      --swiper-pagination-bullet-inactive-color: #fff;
+    }
+  }
+}

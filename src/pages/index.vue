@@ -8,7 +8,6 @@
     :pagination="{ clickable: true }"
     :navigation="true"
     @swiper="onSwiper"
-    @slide-change="onSlideChange"
     class="home__swiper">
     <swiper-slide
       v-for="item in list"
@@ -22,6 +21,11 @@
         :text-badge="item.textBadge"
         :icon-badge="item.iconBadge" />
     </swiper-slide>
+    <button
+      type="button"
+      @click="swiperInstance.slideNext();">
+      재생/일시정지
+    </button>
   </swiper>
   <div class="inner">
     <ItemVideoList
@@ -36,7 +40,7 @@
 <script>
 import { ref } from 'vue';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Swiper, SwiperSlide  } from 'swiper/vue';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
@@ -79,17 +83,15 @@ export default {
       },
     ])
 
+    const swiperInstance = ref()
     const onSwiper = (swiper) => {
-        console.log(swiper);
-      };
-      const onSlideChange = () => {
-        console.log('slide change');
-      };
+      swiperInstance.value = swiper
+    };
 
     return {
-      list,
+      swiperInstance,
       onSwiper,
-      onSlideChange,
+      list,
       modules: [Navigation, Pagination, Scrollbar, A11y],
     }
   }

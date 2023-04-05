@@ -2,8 +2,9 @@
 
 .home {
   &__swiper {
+    padding-bottom: 50px;
     .swiper-slide {
-      width: auto
+      width: auto;
     }
   }
 }
