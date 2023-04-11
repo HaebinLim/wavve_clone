@@ -7,6 +7,10 @@
     :loop="true"
     :pagination="{ clickable: true }"
     :navigation="true"
+    :autoplay="{
+      delay: 5000,
+      disableOnInteraction: false,
+    }"
     @swiper="onSwiper"
     class="home__swiper">
     <swiper-slide
@@ -23,8 +27,13 @@
     </swiper-slide>
     <button
       type="button"
-      @click="swiperInstance.slideNext();">
-      재생/일시정지
+      class="home__swiper__button"
+      :class="{ 'home__swiper__button--play' : playState }"
+      :aria-pressed="playState"
+      @click="onClickPlay">
+      <span
+        class="sr-only"
+        ref="playButton">정지</span>
     </button>
   </swiper>
   <div class="inner">
@@ -39,7 +48,7 @@
 </template>
 <script>
 import { ref } from 'vue';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Autoplay, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide  } from 'swiper/vue';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -56,7 +65,7 @@ export default {
     ItemVideo
   },
   setup() {
-    let list = ref([
+    const list = ref([
       {
         thumb: 'https://www.sisain.co.kr/news/photo/201906/34919_67998_0853.jpg',
         textBadge: ['안녕', '안녕', '안녕'],
@@ -83,16 +92,32 @@ export default {
       },
     ])
 
-    const swiperInstance = ref()
+    const swiperInstance = ref(null)
     const onSwiper = (swiper) => {
       swiperInstance.value = swiper
     };
+    const playState = ref(false);
+    const playButton = ref();
+    const onClickPlay = () => {
+      if(playState.value) {
+        playState.value = false;
+        swiperInstance.value.autoplay.start();
+        playButton.value.textContent = '정지';
+      } else {
+        playState.value = true;
+        swiperInstance.value.autoplay.stop();
+        playButton.value.textContent = '재생';
+      }
+    }
 
     return {
+      list,
       swiperInstance,
       onSwiper,
-      list,
-      modules: [Navigation, Pagination, Scrollbar, A11y],
+      playState,
+      playButton,
+      onClickPlay,
+      modules: [Autoplay, Navigation, Pagination, A11y],
     }
   }
 }

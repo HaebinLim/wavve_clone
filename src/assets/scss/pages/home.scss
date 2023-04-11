@@ -6,5 +6,28 @@
     .swiper-slide {
       width: auto;
     }
+    &__button {
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - 80px);
+      z-index: 10;
+      width: 30px;
+      height: 30px;
+      &:before {
+        display: block;
+        margin: 0 auto;
+        width: 11px;
+        height: 16px;
+        border-style: solid;
+        border-color: transparent #fff;
+        border-width: 0 3px;
+        content: ""  
+      }
+      &--play {
+        &:before {
+          border-width: 8px 0 8px 13px;
+        }
+      }
+    }
   }
 }
