@@ -1,0 +1,40 @@
+
+.button {
+  $button: &;
+  &--box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    border-radius: var(--radius);
+    color: #fff;
+    background: #1351f9;
+    &#{$button}--large {
+      height: 48px;
+      font-size: 16px;
+    }
+    &#{$button}--block {
+      display: flex;
+      width: 100%;
+    }
+  }
+  &--icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px 0;
+    color: #a5a5a5;
+    &::before {
+      content: ""
+    }
+    &#{$button}--large {
+      padding: 0 10px;
+      &::before {
+        width: 30px;
+        height: 30px;
+        background: red;
+      }
+      font-size: 14px;
+    }
+  }
+}

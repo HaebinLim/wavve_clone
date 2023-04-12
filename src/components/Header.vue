@@ -53,6 +53,7 @@ export default {
   props: {
     category: {
       type: Array,
+      default: () => []
     },
   },
   setup() {

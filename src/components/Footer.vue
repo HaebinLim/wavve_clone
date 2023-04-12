@@ -32,8 +32,16 @@
         </div>
       </div>
       <div class="footer__sns">
-        <button type="button" class="sns__btn sns__btn--facebook"><span class="sr-only">페이스북</span></button>
-        <button type="button" class="sns__btn sns__btn--blog"><span class="sr-only">블로그</span></button>
+        <button
+          type="button"
+          class="sns__btn sns__btn--facebook">
+          <span class="sr-only">페이스북</span>
+        </button>
+        <button
+          type="button"
+          class="sns__btn sns__btn--blog">
+          <span class="sr-only">블로그</span>
+        </button>
       </div>
     </div>
   </footer>

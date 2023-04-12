@@ -1,0 +1,39 @@
+.detail__video {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 700px;
+  &__title {
+
+  }
+  &__info {
+    & > span {
+      display: inline-flex;
+      align-items: center;
+      color: #a5a5a5;
+      font-size: 16px;
+      line-height: 24px;
+      vertical-align: top;
+      &:not(:first-child)::before {
+        display: inline-flex;
+        margin: 0 4px;
+        width: 3px;
+        height: 3px;
+        border-radius: 2px;
+        background: #a5a5a5;
+        content: "";
+      }
+    }
+  }
+  &__btns {
+    display: flex;
+    gap: 0 10px;
+    align-items: center;
+  }
+  &__story {
+    max-width: 780px;
+    color: #a5a5a5;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
