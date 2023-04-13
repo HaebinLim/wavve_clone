@@ -28,13 +28,22 @@
         v-if="title !== ''">{{ title }}</strong>
       <span
         class="item__info"
-        v-if="info !== ''">{{ info }}</span>
+        v-if="info.length"><span
+          v-for="i in info"
+          :key="i">{{ i }}</span></span>
     </div>
-    <p
+    <div
       class="item__story"
-      v-if="size === title !== ''">
-      {{ desc }}
-    </p>
+      v-if="desc !== ''">
+      <p class="txt">
+        {{ desc }}
+      </p>
+      <p
+        class="actor"
+        v-if="actor !== ''">
+        출연 : 최재성,방은희,윤지숙,임혁,박형준,이종원,김예령,김희정,이슬아
+      </p>
+    </div>
   </div>
 </template>
 
@@ -46,16 +55,23 @@ export default {
     size: {
       type: String,
       default: '',
+      validator(type) {
+        return ['series', 'episode', 'related', 'wide'].includes(type);
+      },
     },
     title: {
       type: String,
       default: '',
     },
     info: {
+      type: Array,
+      default: () => []
+    },
+    desc: {
       type: String,
       default: '',
     },
-    desc: {
+    actor: {
       type: String,
       default: '',
     },

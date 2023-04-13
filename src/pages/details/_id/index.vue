@@ -20,23 +20,44 @@
           :size="'large'" />
       </div>
       <div class="detail__video__story">
-        <p>
+        <p class="txt">
+          1980년대부터 1990년대까지 이어지는 격변의 대한민국을 배경으로, 자신만의 꿈과 우정 그리고 인생의 단 한 번뿐인 첫사랑을 지키기 위해 치열하게 몸을 내던진 세 청춘들의 이야기를 그린 드라마
           1980년대부터 1990년대까지 이어지는 격변의 대한민국을 배경으로, 자신만의 꿈과 우정 그리고 인생의 단 한 번뿐인 첫사랑을 지키기 위해 치열하게 몸을 내던진 세 청춘들의 이야기를 그린 드라마
         </p>
-        <button type="button">
+        <button
+          type="button"
+          class="more">
           더보기
         </button>
       </div>
     </div>
-    <TabMenu />
-    <TabContent />
+    <div class="detail__content">
+      <TabMenu
+        :tab-list="tabList"
+        v-model="activeTab" />
+      <tab-content>
+        <ItemVideo
+          :size="'episode'"
+          :title="'자야징'"
+          :info="['졸리당', '졸려']"
+          :desc="'10시간자야지'"
+          :thumb="'https://www.sisain.co.kr/news/photo/201906/34919_67998_0853.jpg'" />
+        <ItemVideo
+          :size="'related'"
+          :title="'자야징'"
+          :info="['졸리당', '졸려']"
+          :thumb="'https://www.sisain.co.kr/news/photo/201906/34919_67998_0853.jpg'" />      
+      </tab-content>
+    </div>
   </div>
 </template>
 
 
 <script>
+import { ref } from 'vue';
 import BoxButton from '@/components/BoxButton';
 import IconButton from '@/components/IconButton';
+import ItemVideo from '@/components/ItemVideo';
 import TabMenu from '@/components/TabMenu';
 import TabContent from '@/components/TabContent';
 
@@ -45,6 +66,7 @@ export default {
   components: {
     BoxButton,
     IconButton,
+    ItemVideo,
     TabMenu,
     TabContent
   },
@@ -57,16 +79,33 @@ export default {
       type: String,
       default: '',
     },
-    list: {
-      type: Array,
-      default: () => []
-    },
   },
   setup() {
+    const activeTab = ref('01');
+    const tabList = ref([
+      {
+        id: '01',
+        name: '에피소드',
+      },
+      {
+        id: '02',
+        name: '관련영상',
+      },
+      {
+        id: '03',
+        name: '추천',
+      },
+      {
+        id: '04',
+        name: '상세정보',
+      },
+    ])
     const clickTest = (payload) => {
       console.log(payload)
     }
     return {
+      activeTab,
+      tabList,
       clickTest
     }
   }

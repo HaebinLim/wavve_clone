@@ -78,11 +78,17 @@
       line-height: 24px;
     }
     #{$parent}__info {
-      display: block;
+      display: flex;
       margin-top: 4px;
+      gap: 0 4px;
       color: #a5a5a5;
       font-size: 14px;
       line-height: 20px;
+      &>span {
+        &:not(:first-child)::before {
+          content: " · "
+        }
+      }
     }
   }
 
